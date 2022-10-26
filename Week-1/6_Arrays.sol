@@ -65,6 +65,9 @@ contract ArrayRemoveByShifting {
         }
         arr.pop();
     }
+    function getArr()public view returns(uint[] memory){
+        return arr;
+    }
 
     function test() external {
         arr = [1, 2, 3, 4, 5];
@@ -107,7 +110,7 @@ contract ArrayReplaceFromEnd {
         assert(arr[0] == 1);
         assert(arr[1] == 4);
         assert(arr[2] == 3);
-
+        
         remove(2);
         // [1, 4]
         assert(arr.length == 2);
