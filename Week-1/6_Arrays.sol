@@ -89,7 +89,7 @@ contract ArrayRemoveByShifting {
 }
 
 contract ArrayReplaceFromEnd {
-    uint[] public arr;
+    uint[] public arr= [1, 2, 3, 4];
 
     // Deleting an element creates a gap in the array.
     // One trick to keep the array compact is to
@@ -99,6 +99,9 @@ contract ArrayReplaceFromEnd {
         arr[index] = arr[arr.length - 1];
         // Remove the last element
         arr.pop();
+    }
+    function getArr()public view returns(uint[] memory){
+        return arr;
     }
 
     function test() public {
