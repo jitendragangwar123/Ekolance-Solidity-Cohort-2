@@ -4,6 +4,11 @@ Smart Contract:-
         :-These programs should not fail to execute when the predetermined conditions are met
 */
 
+/*
+Solidity:-
+        Solidity is a curly-bracket language designed to target the Ethereum Virtual Machine (EVM). It is influenced by C++, Python and JavaScript.
+*/        
+
 Popular Languages for writing blockchain programmes and smart contracts:-
 ```shell
 ◎ C++                    
@@ -34,6 +39,7 @@ Layer 1
 ◎ Near
 ◎ Cosmos
 ◎ Q e.t.c
+
 Layer 2
 ◎ Bitcoin Lightening Network
 ◎ Polygon
@@ -43,7 +49,7 @@ Layer 2
 ◎ Ethereum Plasma e.t.c
 ```
 
-Assignment:-
+Assignment 1:-
 ```shell
 ◎ What are layer one and layer two blockchains?
 ◎ Does Solana Have a layer two blockchain?
@@ -53,4 +59,8 @@ Assignment:-
 ◎ What is a blockchain?
 ◎ What is the difference between bitcoin, ethereum, polkadot, solana, cardano and binance smart chain?
 ◎ what is a consensus algorithm?
+```
+Assignment 2:-
+```shell
+Upgrade the ether wallet smart contract to allow individuals withdraw the amount of Ethereum they deposited into the smart contract.
 ```
