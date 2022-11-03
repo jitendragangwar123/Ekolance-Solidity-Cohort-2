@@ -1,5 +1,5 @@
 /*
-Smart COntract:- 
+Smart Contract:- 
         :-Smart contracts are simply programs stored on a blockchain that run when predetermined conditions are met.
         :-These programs should not fail to execute when the predetermined conditions are met
 */
@@ -25,7 +25,7 @@ Popular Languages for writing blockchain programmes and smart contracts:-
 Popular Layer one and Layer 2 blockchain Solutions:-
 ```shell
 Layer 1
-◎ *Bitcoin
+◎ Bitcoin
 ◎ Ethereum
 ◎ Polkadot
 ◎ Solana
@@ -44,6 +44,7 @@ Layer 2
 ```
 
 Assignment:-
+```shell
 ◎ What are layer one and layer two blockchains?
 ◎ Does Solana Have a layer two blockchain?
 ◎ What are ZK rollups?
@@ -52,3 +53,4 @@ Assignment:-
 ◎ What is a blockchain?
 ◎ What is the difference between bitcoin, ethereum, polkadot, solana, cardano and binance smart chain?
 ◎ what is a consensus algorithm?
+```
