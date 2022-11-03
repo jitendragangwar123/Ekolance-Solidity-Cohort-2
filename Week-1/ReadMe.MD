@@ -4,8 +4,51 @@ Smart COntract:-
         :-These programs should not fail to execute when the predetermined conditions are met
 */
 
-![image](https://user-images.githubusercontent.com/76531339/199660733-bb78031f-405c-4149-93ba-99d746d92480.png)
-![image](https://user-images.githubusercontent.com/76531339/199660876-f14dad2f-659b-4205-9028-c69f35919232.png)
-![image](https://user-images.githubusercontent.com/76531339/199660937-2cb802ac-a830-4094-a0d1-48f346d46883.png)
+Popular Languages for writing blockchain programmes and smart contracts:-
+```shell
+◎ C++                    
+◎ Java
+◎ C#
+◎ Golang
+◎ Javascript
+◎ Python
+◎ Rust
+◎ Simplicity
+◎ Haskell
+◎ Scilla
+◎ Michelson
+◎ Solidity
+◎ Rholang
+◎ Vyper e.t.c
+```
 
+Popular Layer one and Layer 2 blockchain Solutions:-
+```shell
+Layer 1
+◎ *Bitcoin
+◎ Ethereum
+◎ Polkadot
+◎ Solana
+◎ Cardano
+◎ Binance Smart Chain
+◎ Near
+◎ Cosmos
+◎ Q e.t.c
+Layer 2
+◎ Bitcoin Lightening Network
+◎ Polygon
+◎ Loopring
+◎ Optimism
+◎ Arbitrum
+◎ Ethereum Plasma e.t.c
+```
 
+Assignment:-
+◎ What are layer one and layer two blockchains?
+◎ Does Solana Have a layer two blockchain?
+◎ What are ZK rollups?
+◎ What is the blockchain trilema?
+◎ What is Ethereum Merge?
+◎ What is a blockchain?
+◎ What is the difference between bitcoin, ethereum, polkadot, solana, cardano and binance smart chain?
+◎ what is a consensus algorithm?
