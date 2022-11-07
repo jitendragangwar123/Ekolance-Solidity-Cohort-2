@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.13;
+pragma solidity ^0.8.16;
 
 /*
 Libraries are similar to contracts, but you can't declare any state variable and you can't send ether.
