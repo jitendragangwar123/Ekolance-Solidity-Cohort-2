@@ -8,13 +8,55 @@ You can interact with other contracts by declaring an Interface.
 
 Interface
 
-cannot have any functions implemented
-can inherit from other interfaces
-all declared functions must be external
-cannot declare a constructor
-cannot declare state variables
+:-cannot have any functions implemented
+:-can inherit from other interfaces
+:-all declared functions must be external
+:-cannot declare a constructor
+:-cannot declare state variables
 
 */
+
+/*
+An interface cannot have a constructor while an abstract contract can implement one.
+An interface cannot define state variables but an abstract contract can.
+An inheriting contract must implement all the functions defined in an interface while in 
+an abstract contract the inheriting contract must implement at least one function of the abstract contract.
+*/
+
+/*
+Abstract Contrat :- 
+                 An abstract contract is one that cannot be deployed by itself. An abstract contract must be inherited by another contract.
+                 It have atleast one function which is not implemented. */
+                 
+                 
+
+abstract contract SayHello {
+    uint256 public age;
+    constructor(uint256 _age ){
+        age = _age;
+    }
+
+    function getAge() public virtual returns (uint256);
+    function setAge(uint256 _age) public virtual;
+}
+
+contract Hello is SayHello {
+    
+    constructor(uint256  _age)  
+     SayHello(_age) {
+    }
+
+    function getAge() public view override returns 
+    (uint256){
+        return age;
+    }
+
+    function setAge(uint256 _age ) public override virtual {
+        _age = _age+1;
+        age=_age;
+    }
+}
+
 
 contract Counter {
     uint public count;
