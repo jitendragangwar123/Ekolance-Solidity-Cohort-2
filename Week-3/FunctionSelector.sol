@@ -18,8 +18,6 @@ Here is how the function selector is computed.
 
 */
 
-
-
 pragma solidity ^0.8.13;
 
 contract FunctionSelector {
