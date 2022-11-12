@@ -2,10 +2,22 @@
 pragma solidity ^0.8.16;
 
 /*
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.16;
 
-abi.encode encodes data into bytes.
+contract Decode{
+    uint8 public constant a=9;
+    uint public constant b=10;
 
-abi.decode decodes bytes back into data.
+    function decode(bytes calldata data) external pure returns(uint8,uint){
+        return abi.decode(data,(uint8,uint));
+    }
+
+    function decodePacked(bytes calldata data) external pure returns(uint8 x,uint y) {
+        x=uint8(bytes1(data));
+        y=uint(bytes32(data[1:]));
+    }
+}
 */
 
 
