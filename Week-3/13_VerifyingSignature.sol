@@ -50,8 +50,16 @@ contract VerifySignature {
 
     /* 3. Sign message hash
     # using browser
-    account = "copy paste account of signer here"
-    ethereum.request({ method: "personal_sign", params: [account, hash]}).then(console.log)
+   :-Click F12 to open browser
+    :-to check the ethereum enable or not 
+    >>etheruem.enable()
+    :- to set signer account
+    >>account = "copy paste account of signer here"
+    :- to set Hash value of signed message
+    >> hash="copy paste from the remix console"
+    :- to get signature 
+    >>ethereum.request({ method: "personal_sign", params: [account, hash]}).then(console.log)
+
 
     # using web3
     web3.personal.sign(hash, web3.eth.defaultAccount, console.log)
