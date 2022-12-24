@@ -71,7 +71,8 @@ contract Attack {
         etherStore.withdraw();
     }
 
-    // Helper function to check the balance of this contract
+
+    // helper function to check the balance of this contract
     function getBalance() public view returns (uint) {
         return address(this).balance;
     }
