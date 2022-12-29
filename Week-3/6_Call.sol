@@ -1,8 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-
 /*
-
 call is a low level function to interact with other contracts.
 
 This is the recommended method to use when you're just sending Ether via calling the fallback function.
@@ -10,8 +8,6 @@ This is the recommended method to use when you're just sending Ether via calling
 However it is not the recommend way to call existing functions.
 
 */
-
-
 
 pragma solidity ^0.8.16;
 
