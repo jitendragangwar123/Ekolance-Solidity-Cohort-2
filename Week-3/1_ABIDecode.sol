@@ -20,7 +20,6 @@ contract Decode{
 }
 */
 
-
 contract AbiDecode {
     struct MyStruct {
         string name;
