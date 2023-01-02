@@ -17,6 +17,7 @@ What happened?
 Attack was able to call EtherStore.withdraw multiple times before
 EtherStore.withdraw finished executing.
 
+
 Here is how the functions were called
 - Attack.attack
 - EtherStore.deposit
@@ -27,6 +28,7 @@ Here is how the functions were called
 - EtherStore.withdraw
 - Attack fallback (receives 1 Ether)
 */
+
 
 contract EtherStore {
     mapping(address => uint) public balances;
@@ -50,6 +52,7 @@ contract EtherStore {
         return address(this).balance;
     }
 }
+
 
 contract Attack {
     EtherStore public etherStore;
