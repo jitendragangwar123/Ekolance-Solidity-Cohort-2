@@ -43,3 +43,30 @@ contract Enum {
         delete status;
     }
 }
+
+
+
+//Declaring and importing Enum File that the enum is declared in 
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+// This is saved 'EnumDeclaration.sol'
+
+enum Status {
+    Pending,
+    Shipped,
+    Accepted,
+    Rejected,
+    Canceled
+}
+
+
+
+//File that imports the enum above
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import "./EnumDeclaration.sol";
+
+contract Enum {
+    Status public status;
+}
