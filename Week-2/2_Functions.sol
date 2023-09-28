@@ -2,13 +2,7 @@
 pragma solidity ^0.8.13;
 
 contract Function {
-   
-   
-   
-   
-   
-   
-    // Functions can return multiple values.
+   // Functions can return multiple values.
     function returnMany()
         public
         pure
@@ -50,8 +44,10 @@ contract Function {
         y = 2;
     }
 
-    // Use destructuring assignment when calling another
-    // function that returns multiple values.
+
+   //Use destructuring assignment when calling another
+   //function that returns multiple values.
+
     function destructuringAssignments()
         public
         pure
@@ -84,15 +80,33 @@ contract Function {
 }
 
 /*
+   Call function with key-value inputs
+*/
+contract XYZ {
+    function someFuncWithManyInputs(
+        uint x,
+        uint y,
+        uint z,
+        address a,
+        bool b,
+        string memory c
+    ) public pure returns (uint) {}
+
+    function callFunc() external pure returns (uint) {
+        return someFuncWithManyInputs(1, 2, 3, address(0), true, "c");
+    }
+
+    function callFuncWithKeyValue() external pure returns (uint) {
+        return
+            someFuncWithManyInputs({a: address(0), b: true, c: "c", x: 1, y: 2, z: 3});
+    }
+}
 
 
-Getter functions can be declared view or pure.
-
-View function declares that no state will be changed.
-
-Pure function declares that no state variable will be changed or read.
-
-
+/*
+:- Getter functions can be declared view or pure.
+:- View function declares that no state will be changed.
+:- Pure function declares that no state variable will be changed or read.
 */
 
 contract ViewAndPure {
