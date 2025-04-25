@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity 0.8.15;
 
-
 /*
 There are 3 types of variables in Solidity
    - local
@@ -9,7 +8,7 @@ There are 3 types of variables in Solidity
    -  state
   declared outside a function and stored on the blockchain
    - global 
-  provides information about the blockchain
+  provides information about the blockchain and the current transaction.
 */
 
 contract Variables {
@@ -24,10 +23,11 @@ contract Variables {
         // Here are some global variables
         uint timestamp = block.timestamp; // Current block timestamp
         address sender = msg.sender; // address of the caller
+        uint amount=msg.value; // amount of Ether sent with the current transaction (in Wei)
+        uint blockNumber=block.number; // current block's number
+        address originalCaller=tx.origin; // original sender of the transaction (might be different from msg.sender 
+                                             in multi-contract calls)
     }
-
-    //Assigment 
-
 }
 
 contract Constants {
@@ -45,8 +45,7 @@ contract Constants {
 
 
 contract Immutable {
-
-      /*
+    /*
      Immutable variables are like constants. 
       Values of immutable variables can be set inside the constructor but cannot be modified 
       afterwards.
@@ -62,7 +61,7 @@ contract Immutable {
     }
 }
 
-//Reading and writing to a state variable
+/* Reading and writing to a state variable */
 
 contract SimpleStorage {
     // State variable to store a number
