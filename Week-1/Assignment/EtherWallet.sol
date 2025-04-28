@@ -1,40 +1,70 @@
-//SPDX-License-Identifier: MIT
-pragma solidity >=0.7.0 <0.9.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.24;
 
+/// @title EtherWallet
+/// @author Jitendra Kumar
+/// @notice A simple smart contract that allows users to deposit and withdraw Ether.
 contract EtherWallet {
     address payable public owner;
-    mapping(address => uint) private sender_amount;
+    mapping(address => uint256) private deposits;
+    bool private withdrawing;
+
+    event Deposit(address indexed sender, uint256 amount);
+    event Withdrawal(address indexed recipient, uint256 amount);
+
+    modifier nonReentrant() {
+        require(!withdrawing, "Reentrant call");
+        withdrawing = true;
+        _;
+        withdrawing = false;
+    }
 
     constructor() {
         owner = payable(msg.sender);
     }
 
-    // receive() external payable {}
+    /// @notice Allows the contract to receive Ether directly.
+    receive() external payable {
+        emit Deposit(msg.sender, msg.value); 
+    }
 
+    /// @notice Allows users to deposit Ether into their account within the wallet.
     function deposit() external payable {
-        require(msg.value > 0,"amount must be greater than zero!");
-        sender_amount[msg.sender]+=msg.value;
-        
+        require(msg.value > 0, "Amount must be greater than zero!");
+        deposits[msg.sender] += msg.value;
+        emit Deposit(msg.sender, msg.value);
     }
 
-    function withdraw(uint _amount) external {
-        require(msg.sender == owner, "caller is not owner");
-        payable(msg.sender).transfer(_amount);
+    /// @notice Allows the contract owner to withdraw a specific amount of Ether from the contract.
+    /// @param _amount The amount of Ether to withdraw.
+    function withdraw(uint256 _amount) external nonReentrant {
+        require(msg.sender == owner, "Only the owner can withdraw funds.");
+        require(address(this).balance >= _amount, "Insufficient contract balance.");
+        (bool success, ) = owner.call{value: _amount}("");
+        require(success, "Withdrawal failed.");
+        emit Withdrawal(owner, _amount);
     }
 
-    function withdrawDeposit() public{
-        address sender_address =payable(msg.sender);
-        uint amount=sender_amount[sender_address];
-        (bool success,)=sender_address.call{value:amount}("Withdraw");
-        require(success,"Withdraw not successful!");
-        sender_amount[sender_address]=0;
+    /// @notice Allows users to withdraw their deposited Ether.
+    function withdrawDeposit() external nonReentrant {
+        address payable sender = payable(msg.sender);
+        uint256 amount = deposits[sender];
+        require(amount > 0 && address(this).balance >= amount, "Invalid or insufficient deposit.");
+        deposits[sender] = 0;
+        (bool success, ) = sender.call{value: amount}("");
+        require(success, "Withdrawal not successful!");
+        emit Withdrawal(sender, amount);
     }
 
-    function getDepositAmount() public view returns(uint){
-        return sender_amount[msg.sender];
+    /// @notice Returns the amount of Ether deposited by the caller.
+    /// @return The deposited amount in Wei.
+    function getDepositAmount() external view returns (uint256) {
+        return deposits[msg.sender];
     }
 
-    function getBalance() external view returns (uint) {
+    /// @notice Returns the total balance of the contract.
+    /// @return The contract balance in Wei.
+    function getBalance() external view returns (uint256) {
         return address(this).balance;
     }
 }
