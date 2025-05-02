@@ -1,65 +1,59 @@
+/*
+ Interface:
+  - You can interact with other contracts by declaring an Interface.
+  - Can not have any functions implemented
+  - Can inherit from other interfaces
+  - All declared functions must be external
+  - cannot declare a constructor
+  - cannot declare state variables
+*/
+
+/*
+ Difference between Interface & Abstract Contract:
+  - An interface cannot have a constructor while an abstract contract can implement one.
+  - An interface cannot define state variables but an abstract contract can.
+  - An inheriting contract must implement all the functions defined in an interface 
+    while in an abstract contract the inheriting contract must implement at least one function of the abstract contract.
+*/
+
+/*
+Abstract Contrat: 
+  - An abstract contract is one that cannot be deployed by itself. 
+  - An abstract contract must be inherited by another contract.
+  - It have atleast one function which is not implemented. 
+*/
+                 
+                 
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.13;
-
-/*
-
-
-You can interact with other contracts by declaring an Interface.
-
-Interface
-
-:-cannot have any functions implemented
-:-can inherit from other interfaces
-:-all declared functions must be external
-:-cannot declare a constructor
-:-cannot declare state variables
-
-*/
-
-/*
-An interface cannot have a constructor while an abstract contract can implement one.
-An interface cannot define state variables but an abstract contract can.
-An inheriting contract must implement all the functions defined in an interface while in 
-an abstract contract the inheriting contract must implement at least one function of the abstract contract.
-*/
-
-/*
-Abstract Contrat :- 
-                 An abstract contract is one that cannot be deployed by itself. An abstract contract must be inherited by another contract.
-                 It have atleast one function which is not implemented. */
-                 
-                 
+pragma solidity ^0.8.24;
 
 abstract contract SayHello {
     uint256 public age;
-    constructor(uint256 _age ){
+
+    constructor(uint256 _age) {
         age = _age;
     }
 
     function getAge() public virtual returns (uint256);
+
     function setAge(uint256 _age) public virtual;
 }
 
 contract Hello is SayHello {
-    
-    constructor(uint256  _age)  
-     SayHello(_age) {
-    }
+    constructor(uint256 _age) SayHello(_age) {}
 
-    function getAge() public view override returns 
-    (uint256){
+    function getAge() public view override returns (uint256) {
         return age;
     }
 
-    function setAge(uint256 _age ) public override virtual {
-        _age = _age+1;
-        age=_age;
+    function setAge(uint256 _age) public virtual override {
+        _age = _age + 1;
+        age = _age;
     }
 }
 
-
 contract Counter {
-    uint public count;
+    uint256 public count;
 
     function increment() external {
         count += 1;
@@ -67,7 +61,7 @@ contract Counter {
 }
 
 interface ICounter {
-    function count() external view returns (uint);
+    function count() external view returns (uint256);
 
     function increment() external;
 }
@@ -77,12 +71,12 @@ contract MyContract {
         ICounter(_counter).increment();
     }
 
-    function getCount(address _counter) external view returns (uint) {
+    function getCount(address _counter) external view returns (uint256) {
         return ICounter(_counter).count();
     }
 }
 
-// Uniswap example
+// Interface Example (Uniswap)
 interface UniswapV2Factory {
     function getPair(address tokenA, address tokenB)
         external
@@ -106,9 +100,10 @@ contract UniswapExample {
     address private dai = 0x6B175474E89094C44Da98b954EedeAC495271d0F;
     address private weth = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;
 
-    function getTokenReserves() external view returns (uint, uint) {
+    function getTokenReserves() external view returns (uint256, uint256) {
         address pair = UniswapV2Factory(factory).getPair(dai, weth);
-        (uint reserve0, uint reserve1, ) = UniswapV2Pair(pair).getReserves();
+        (uint256 reserve0, uint256 reserve1, ) = UniswapV2Pair(pair)
+            .getReserves();
         return (reserve0, reserve1);
     }
 }
